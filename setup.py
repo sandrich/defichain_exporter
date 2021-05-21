@@ -24,5 +24,8 @@ setup(
             "Programming Language :: Python :: 3",
             "Operating System :: MacOS :: MacOS X",
             "Operating System :: Microsoft :: Windows",
-        ]
+        ],
+        entry_points = {
+            "console_scripts": ["defichain-exporter=defichain_exporter.__main__:main"]
+        }
 )

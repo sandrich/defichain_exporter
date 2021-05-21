@@ -15,7 +15,7 @@ def process_masternodes(server, f):
     for k, v in f.items():
         process_type(v, minting[k])
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description='DefiChain Exporter')
     parser.add_argument('--username', help='rpc username')
     parser.add_argument('--password', help='rpc password')
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     start_http_server(args.port)
 
-    server = Server(masternode, auth=(args.username, args.password))
+    server = Server(args.masternode, auth=(args.username, args.password))
 
     masternode_minting_functions = {
         "currentblockweight": { "type": "gauge", "obj" : Gauge('masternode__minting_current_blockweight', 'Current Blockweight')},
@@ -37,7 +37,9 @@ if __name__ == '__main__':
         "mintedblocks": { "type": "gauge", "obj" : Gauge('masternode_minting_mintedblocks', 'Minted blocks')}
     }
 
-
     while True:
         process_masternodes(server, masternode_minting_functions)
         time.sleep(random.random())
+
+if __name__ == '__main__':
+    main()
