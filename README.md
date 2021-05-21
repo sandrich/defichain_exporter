@@ -8,6 +8,8 @@ pip3 install defichain-exporter
 ```
 
 ## Usage
+By default defichain-exporter will run on port 8000 and run in foreground. Ideally this is installed into a daemon service such as systemd.
+
 ```
 usage: defichain-exporter [-h] [--username USERNAME] [--password PASSWORD]
                           [--port PORT] [--masternode MASTERNODE]
@@ -22,3 +24,7 @@ optional arguments:
   --masternode MASTERNODE
                         masternode host (default http://localhost:8554)
 ```
+
+## License
+MIT
+
