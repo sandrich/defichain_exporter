@@ -42,7 +42,7 @@ def main():
 
     args = parser.parse_args()
 
-    start_http_server(args.port)
+    start_http_server(int(args.port))
 
     server = Server(args.masternode, auth=(args.username, args.password))
 
